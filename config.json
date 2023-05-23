@@ -1,0 +1,16 @@
+{
+    "server_port": 80,
+    "fetch_interval": 60000,
+    "sources": [
+        {
+            "url": "https://yowapeda-slb.pro.g123-cpp.com/centerserver/api/api/zonelist",
+            "auth_key": "c35e8962bf7c4701",
+            "game": "yowapeda"
+        },
+        {
+            "url": "https://ginei-slb.stg.g123-cpp.com/center/gs/zonelist",
+            "auth_key": "NGXkggDxSJuiHQwmv87k0Ux37J6gMFgH",
+            "game": "ginei"
+        }
+    ]
+}

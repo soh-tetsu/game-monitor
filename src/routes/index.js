@@ -1,9 +1,11 @@
-const express = require('express');
+import express from 'express';
+import root from './root.js';
+import metrics from './metrics.js';
+
 const router = express.Router();
+router.use('/', root);
+router.use('/metrics', metrics);
 
-
-router.use('/', require('./root'));
-router.use('/metrics', require('./metrics'));
-
-module.exports = router;
+// module.exports = router;
+export default router;
 
