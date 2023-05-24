@@ -24,6 +24,7 @@ const zoneCreatedRole = new Gauge({
 const worker = async (url, authKey, game) => {
     try {
         const res = await fetchData(url, authKey);
+        // console.log(res);
         pushMetrics(res, game);
     } catch (err) {
         console.error(`Failed to update metrics for game ${game} due to ${err.message}`);
@@ -53,17 +54,21 @@ const pushMetrics = async (data, game) => {
 
 // entry point of updating game server metrics
 export const updateMetrics = async (interval, sources) => {
-    // worker per source, run concurrently
-    const workers = sources.map(
-        source => {
-            return worker(source.url, source.auth_key, source.game);
-        }
-    );
+    try {
+        // worker per source, run concurrently
+        const workers = sources.map(
+            source => {
+                return worker(source.url, source.auth_key, source.game);
+            }
+        );
 
-    await Promise.allSettled(workers);
+        await Promise.allSettled(workers);
 
-    // Schedule next update
-    setTimeout(updateMetrics, interval);
+        // Schedule next update
+        setTimeout(updateMetrics, interval, interval, sources);
+    } catch (err) {
+        console.error(`Error in updateMetrics: ${err.message}`);
+    }
 }
 
 

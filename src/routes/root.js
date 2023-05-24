@@ -1,13 +1,9 @@
-
-// const express = require('express');
-
 import express from 'express';
 const router = express.Router();
 
-router.get('/', (_, res) => {
-    res.send('hello, world!');
+router.get('/', (req, res) => {
+    // console.log(`/ get req ${req}`);
+    res.send('Monitoring games running on CPP.');
 });
-
-// module.exports = router;
 
 export default router;
