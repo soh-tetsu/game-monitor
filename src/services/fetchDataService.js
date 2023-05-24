@@ -14,7 +14,7 @@ const fetchData = async (url, key) => {
 
         return resp.data.data;
     } catch (error) {
-        console.error('Error while fetching data:', error);
+        // console.error('Error while fetching data:', error);
         throw error;
     }
 }

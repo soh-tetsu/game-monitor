@@ -45,7 +45,7 @@ const pushMetrics = async (data, game) => {
                 .labels(zone.ID.toString(), zone.svrname, zone.status, game)
                 .set(zone.createrole);
         });
-        console.log(data);
+        // console.log(data);
     } catch (error) {
         console.error(`Failed to update metrics: ${error.message}`)
     }

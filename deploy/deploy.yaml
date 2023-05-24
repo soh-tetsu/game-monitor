@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
-    targetPort: 80
+    port: 8123
+    targetPort: 8123
   selector:
     name: game-monitor
 ---
@@ -30,14 +30,13 @@ spec:
       labels:
         name: game-monitor
     spec:
-      restartPolicy: Always
       containers:
-      - image: game-monitor-img
+      - image: 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:latest
         imagePullPolicy: IfNotPresent
         name: game-monitor
         ports:
-        - containerPort: 80
-          hostPort: 80
+        - containerPort: 8123
+          hostPort: 8123
           name: http
         resources:
           requests:
