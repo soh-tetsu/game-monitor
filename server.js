@@ -17,7 +17,7 @@ app.use(routes);
 // collect default nodejs metrics
 collectDefaultMetrics({
     labels: {
-        app: 'game-observer',
+        app: 'game-monitor',
         owner: 'sre@ctw.inc',
     }
 });
@@ -26,6 +26,6 @@ collectDefaultMetrics({
 updateMetrics(FETCH_INTERVAL, config.sources);
 
 app.listen(port, '0.0.0.0', () => {
-    console.log(`Hello World app listening at http://0.0.0.0:${port}`);
+    console.log(`app listening at http://0.0.0.0:${port}`);
 });
 
