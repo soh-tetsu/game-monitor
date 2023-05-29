@@ -5,19 +5,19 @@ import fetchData from '../services/fetchDataService.js'
 const zoneCapacity = new Gauge({
     name: 'game_server_capacity',
     help: 'number of roles can be created in each game server',
-    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game']
+    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game','env']
 });
 
 const zoneOnline = new Gauge({
     name: 'game_server_online',
     help: 'number of active players in each game server',
-    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game']
+    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game','env']
 });
 
 const zoneCreatedRole = new Gauge({
     name: 'game_server_created_roles',
     help: 'number of roles created in each game server',
-    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game']
+    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game', 'env']
 });
 
 // worker for fetching data and publish metrics
@@ -37,13 +37,13 @@ const pushMetrics = async (data, game) => {
         // const data = await fetchData();
         data.zonelist.forEach( (zone) => {
             zoneCapacity
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game)
+                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
                 .set(zone.capacity);
             zoneOnline
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game)
+                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
                 .set(zone.online);
             zoneCreatedRole
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game)
+                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
                 .set(zone.createrole);
         });
         // console.log(data);

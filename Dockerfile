@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/root/.cache \
 # install packages
 COPY package.json ./
 RUN --mount=type=cache,target=/root/.cache \
-    pnpm install -r --offline --prod
+    pnpm install -r --prod --offline
 
 # copy over other files and compile
 COPY . .
