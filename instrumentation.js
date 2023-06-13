@@ -1,8 +1,5 @@
 /*instrumentation.js*/
 import { NodeSDK } from '@opentelemetry/sdk-node';
-// import { CompositeSpanExporter, BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
-// import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-node';
-// import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 import { OTLPTraceExporter, } from "@opentelemetry/exporter-trace-otlp-proto";
 import { OTLPMetricExporter } from "@opentelemetry/exporter-metrics-otlp-proto";
 import { PeriodicExportingMetricReader, ConsoleMetricExporter } from '@opentelemetry/sdk-metrics';
@@ -19,6 +16,7 @@ const otlpTraceExporter = new OTLPTraceExporter({
       url: `http://${OTEL_HTTP_HOST}:${OTEL_HTTP_PORT}/v1/traces`
 });
 const otlpMetricsExporter = new OTLPMetricExporter({
+      url: `http://${OTEL_HTTP_HOST}:${OTEL_HTTP_PORT}/v1/metrics`
 });
 
 const sdk = new NodeSDK({
