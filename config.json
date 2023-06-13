@@ -8,8 +8,8 @@
             "game": "yowapeda"
         },
         {
-            "url": "https://ginei-slb.stg.g123-cpp.com/center/gs/zonelist",
-            "auth_key": "NGXkggDxSJuiHQwmv87k0Ux37J6gMFgH",
+            "url": "https://ginei-slb.pro.g123-cpp.com/center/gs/zonelist?key=NGXkggDxSJuiHQwmv87k0Ux37J6gMFgH",
+            "auth_key": "19fc49e9c4a7095de5a24803db8e4cc9b6cc81ca6125cd80aae87c98cd567cf9f345225da072873cb5cf6d4bc1901c5066790b9712a92587d102479a3395a93d",
             "game": "ginei"
         }
     ]

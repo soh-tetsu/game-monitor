@@ -31,7 +31,7 @@ spec:
         name: game-monitor
     spec:
       containers:
-      - image: 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:v1.0.1
+      - image: 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:v1.0.2
         imagePullPolicy: IfNotPresent
         name: game-monitor
         env:
