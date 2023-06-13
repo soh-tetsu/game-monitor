@@ -24,3 +24,7 @@ docker push 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:v${ve
 ```
 kubectl apply -f deploy/deploy.yaml
 ```
+
+# ChangeLog
+## v1.0.2
+- Send traces via OpenTelemetry protocol (OTPL)

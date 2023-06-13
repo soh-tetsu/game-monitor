@@ -1,3 +1,4 @@
+import './instrumentation.js';
 import express from 'express';
 import routes from './src/routes/index.js';
 import { updateMetrics } from './src/metrics/metrics.js';
