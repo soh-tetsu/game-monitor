@@ -9,8 +9,13 @@
         },
         {
             "url": "https://ginei-slb.pro.g123-cpp.com/center/gs/zonelist?key=NGXkggDxSJuiHQwmv87k0Ux37J6gMFgH",
-            "auth_key": "19fc49e9c4a7095de5a24803db8e4cc9b6cc81ca6125cd80aae87c98cd567cf9f345225da072873cb5cf6d4bc1901c5066790b9712a92587d102479a3395a93d",
+            "auth_key": "cd70bc8f25b4ad4b7cb685abcb660fadf38c5b890fa2c6c84a71b9ebde4583fa",
             "game": "ginei"
+        },
+        {
+            "url": "https://yamato-slb.pro.g123-cpp.com/auth/zonelist?key=yamato",
+            "auth_key": "eWFtYXRvOmp5dWd3QGFzQWQ=",
+            "game": "yamato"
         }
     ]
 }

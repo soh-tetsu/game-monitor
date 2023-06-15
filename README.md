@@ -27,4 +27,4 @@ kubectl apply -f deploy/deploy.yaml
 
 # ChangeLog
 ## v1.0.2
-- Send traces via OpenTelemetry protocol (OTPL)
+- Send traces and metrics via OpenTelemetry protocol (OTPL)
