@@ -26,5 +26,7 @@ kubectl apply -f deploy/deploy.yaml
 ```
 
 # ChangeLog
+## v1.0.3
+- add configuration for ginei and yamato
 ## v1.0.2
 - Send traces and metrics via OpenTelemetry protocol (OTPL)
