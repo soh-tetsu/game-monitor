@@ -20,6 +20,12 @@ const zoneCreatedRole = new Gauge({
     labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game', 'env']
 });
 
+const zonePaidUser = new Gauge({
+    name: 'game_server_paid_user',
+    help: 'number of user who has purchased in each game server',
+    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game', 'env']
+});
+
 // worker for fetching data and publish metrics
 const worker = async (url, authKey, game) => {
     try {
@@ -33,6 +39,7 @@ const worker = async (url, authKey, game) => {
 
 // expose metrics of game servers
 const pushMetrics = async (data, game) => {
+        // console.log(data);
     try {
         // const data = await fetchData();
         data.zonelist.forEach( (zone) => {
@@ -45,8 +52,10 @@ const pushMetrics = async (data, game) => {
             zoneCreatedRole
                 .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
                 .set(zone.createrole);
+            zonePaidUser
+                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
+                .set(zone.paiduser);
         });
-        // console.log(data);
     } catch (error) {
         console.error(`Failed to update metrics: ${error.message}`)
     }

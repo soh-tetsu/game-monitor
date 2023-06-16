@@ -6,18 +6,15 @@ FROM registry.access.redhat.com/ubi9/nodejs-18-minimal:1-51
 WORKDIR /app
 
 # layer caching for pnpm install
-RUN --mount=type=cache,target=/root/.cache \
-    npm install -g pnpm
+RUN npm install -g pnpm
 
 # download packages
 COPY pnpm-lock.yaml ./
-RUN --mount=type=cache,target=/root/.cache \
-    pnpm fetch --prod
+RUN pnpm fetch --prod
 
 # install packages
 COPY package.json ./
-RUN --mount=type=cache,target=/root/.cache \
-    pnpm install -r --prod --offline
+RUN pnpm install -r --prod --offline
 
 # copy over other files and compile
 COPY . .
