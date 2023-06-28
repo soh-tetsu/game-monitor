@@ -16,6 +16,11 @@
             "url": "https://yamato-slb.pro.g123-cpp.com/auth/zonelist?key=yamato",
             "auth_key": "eWFtYXRvOmp5dWd3QGFzQWQ=",
             "game": "yamato"
+        },
+        {
+            "url": "https://iseleve-slb.pro.g123-cpp.com/billing/api/g123sdk/zonelist",
+            "auth_key": "xchyy12h1H0ngX7ng5huq1Ang5aI",
+            "game": "iseleve"
         }
     ]
 }

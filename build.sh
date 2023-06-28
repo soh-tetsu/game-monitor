@@ -1,4 +1,7 @@
 #! /bin/bash
+
+aws ecr get-login-password --profile ctw-sre | docker login --username AWS --password-stdin 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com
+
 export VERSION=$(cat VERSION)
 
 echo "docker buildx build --cache-from=type=local,src=/tmp/game-monitor --cache-to=type=local,dest=/tmp/game-monitor ./ -t game-monitor --platform linux/amd64 --load"

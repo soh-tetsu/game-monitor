@@ -37,28 +37,33 @@ const worker = async (url, authKey, game) => {
     }
 }
 
-// expose metrics of game servers
-const pushMetrics = async (data, game) => {
-        // console.log(data);
+const tryPass = (fn) => {
     try {
-        // const data = await fetchData();
-        data.zonelist.forEach( (zone) => {
-            zoneCapacity
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
-                .set(zone.capacity);
-            zoneOnline
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
-                .set(zone.online);
-            zoneCreatedRole
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
-                .set(zone.createrole);
-            zonePaidUser
-                .labels(zone.ID.toString(), zone.svrname, zone.status, game, "production")
-                .set(zone.paiduser);
-        });
+        return fn();
     } catch (error) {
+        // console.error(error);
         console.error(`Failed to update metrics: ${error.message}`)
     }
+}
+
+// expose metrics of game servers
+const pushMetrics = async (data, game) => {
+    // console.log(data);
+    // const data = await fetchData();
+    data.zonelist.forEach( (zone) => {
+        tryPass(()=> {
+            zoneCapacity.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.capacity);
+        });
+        tryPass(()=> {
+            zoneOnline.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.online);
+        });
+        tryPass(()=> {
+            zoneCreatedRole.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.createrole);
+        });
+        tryPass(()=> {
+            zonePaidUser.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.paiduser);
+        });
+    });
 };
 
 // entry point of updating game server metrics

@@ -26,6 +26,9 @@ kubectl apply -f deploy/deploy.yaml
 ```
 
 # ChangeLog
+## v1.0.6
+- add config for iseleve.
+- wraper metrics parser to try-and-pass the exceptios.
 ## v1.0.5
 - implement `build.sh` to wrap building and deployment steps.
 ## v1.0.4
