@@ -13,6 +13,12 @@ docker tag game-monitor:latest 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com
 echo "docker push 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:v${VERSION}"
 docker push 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com/game-monitor:v${VERSION}
 
+echo "change to sre cluster"
+kubectl ctx ctw-sre-k8s
+
+echo "change to grafana namespace"
+kubectl ns grafana
+
 echo "envsubst < deploy/deploy.yaml | kubectl apply -f -"
 envsubst < deploy/deploy.yaml | kubectl apply -f -
 

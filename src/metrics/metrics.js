@@ -2,11 +2,6 @@ import {Gauge, register} from 'prom-client';
 import fetchData from '../services/fetchDataService.js'
 
 // define metrics
-const zoneCapacity = new Gauge({
-    name: 'game_server_capacity',
-    help: 'number of roles can be created in each game server',
-    labelNames: ['gameserver_id', 'gameserver_name', 'gameserver_status','game','env']
-});
 
 const zoneOnline = new Gauge({
     name: 'game_server_online',
@@ -51,9 +46,6 @@ const pushMetrics = async (data, game) => {
     // console.log(data);
     // const data = await fetchData();
     data.zonelist.forEach( (zone) => {
-        tryPass(()=> {
-            zoneCapacity.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.capacity);
-        });
         tryPass(()=> {
             zoneOnline.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.online);
         });

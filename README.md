@@ -26,6 +26,9 @@ kubectl apply -f deploy/deploy.yaml
 ```
 
 # ChangeLog
+## v1.0.7
+- remove game_server_capacity metric
+- remove http/express instrumentation
 ## v1.0.6
 - add config for iseleve.
 - wraper metrics parser to try-and-pass the exceptios.
