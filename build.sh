@@ -1,5 +1,6 @@
 #! /bin/bash
 
+set -e
 aws ecr get-login-password --profile ctw-sre | docker login --username AWS --password-stdin 083250277353.dkr.ecr.ap-northeast-1.amazonaws.com
 
 export VERSION=$(cat VERSION)
