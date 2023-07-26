@@ -21,6 +21,11 @@
             "url": "https://iseleve-slb.pro.g123-cpp.com/billing/api/g123sdk/zonelist",
             "auth_key": "xchyy12h1H0ngX7ng5huq1Ang5aI",
             "game": "iseleve"
+        },
+        {
+            "url": "https://transformers-slb.pro.g123-cpp.com/login/transformers_platform/zonelist.php",
+            "auth_key": "",
+            "game": "transformers"
         }
     ]
 }

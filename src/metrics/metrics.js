@@ -37,7 +37,7 @@ const tryPass = (fn) => {
         return fn();
     } catch (error) {
         // console.error(error);
-        console.error(`Failed to update metrics: ${error.message}`)
+        console.error(`Failed to update metrics: ${error}`)
     }
 }
 
@@ -47,13 +47,13 @@ const pushMetrics = async (data, game) => {
     // const data = await fetchData();
     data.zonelist.forEach( (zone) => {
         tryPass(()=> {
-            zoneOnline.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.online);
+            zoneOnline.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(parseInt(zone.online));
         });
         tryPass(()=> {
-            zoneCreatedRole.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.createrole);
+            zoneCreatedRole.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(parseInt(zone.createrole));
         });
         tryPass(()=> {
-            zonePaidUser.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(zone.paiduser);
+            zonePaidUser.labels(zone.ID.toString(), zone.svrname, zone.status, game, "production").set(parseInt(zone.paiduser));
         });
     });
 };

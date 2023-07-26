@@ -26,6 +26,9 @@ kubectl apply -f deploy/deploy.yaml
 ```
 
 # ChangeLog
+## v1.0.8
+- added game transformers
+- do parseInt for values from API.
 ## v1.0.7
 - remove game_server_capacity metric
 - remove http/express instrumentation
